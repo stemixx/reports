@@ -1,0 +1,15 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'deloreports:index' %}">Вернуться на главную</a>
+    {% load plotly_dash %}
+    <h6>*Обновляется каждые 2 часа</h6>
+    <div class="{% plotly_class name='MonthResolutions' %}" style="height: 100%; width: 100%; margin-bottom: 20px">
+        {% plotly_app name='MonthResolutions' ratio=0.65 %}
+    </div>
+
+    <div class="{% plotly_class name='ExpiredDocs' %}" style="height: 100%; width: 100%; margin-bottom: 20px">
+        {% plotly_app name='ExpiredDocs' ratio=0.65 %}
+    </div>
+{% endblock %}
